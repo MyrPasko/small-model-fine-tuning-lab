@@ -1,0 +1,4 @@
+interface:
+  display_name: "End Session"
+  short_description: "Close the guided fine-tuning learning session"
+  default_prompt: "Use $end-session to verify and close the current Small Model Fine-Tuning Lab session."

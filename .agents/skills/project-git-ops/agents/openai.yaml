@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project Git Ops"
+  short_description: "Own Git and GitHub operations for this project"
+  default_prompt: "Use $project-git-ops to complete the next Git or GitHub operation for this project."
