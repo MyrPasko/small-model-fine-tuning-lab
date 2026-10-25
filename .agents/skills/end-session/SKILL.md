@@ -30,8 +30,9 @@ Treat absolute paths as machine-specific. If the repository moved, locate it fro
 - Aira teaches, scopes, reviews, verifies evidence, and maintains learning records.
 - Myroslav implements code by default.
 - Aira may implement code only after an explicit bounded takeover request.
+- Aira owns all Git and GitHub mechanics under `$project-git-ops`; Myroslav is not assigned branch, staging, commit, push, PR, merge, or main-sync commands.
 - Repository evidence overrides stale notes.
-- A request to end a session authorizes the learning-record updates described here. It does not authorize code changes, commits, pushes, pull requests, chat archival, model or dataset downloads, dependency installation, backend runs, or training.
+- A request to end a session authorizes the learning-record updates described here. Standing Git/GitHub authority is defined separately by `$project-git-ops`; ending a session does not authorize code changes, chat archival, model or dataset downloads, dependency installation, backend runs, or training.
 - Preserve unrelated user changes. Never clean or revert the working tree merely to make the session state simpler.
 
 ## Workflow
