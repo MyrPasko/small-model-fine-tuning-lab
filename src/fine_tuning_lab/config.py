@@ -1,10 +1,12 @@
-from enum import StrEnum
 from dataclasses import dataclass
+from enum import StrEnum
+
 
 class RunVariant(StrEnum):
     BASELINE = "baseline"
     SMOKE = "smoke"
     FULL = "full"
+
 
 @dataclass(frozen=True)
 class ExperimentConfig:

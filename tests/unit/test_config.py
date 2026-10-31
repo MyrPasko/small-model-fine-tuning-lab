@@ -1,5 +1,5 @@
-from dataclasses import FrozenInstanceError
 import unittest
+from dataclasses import FrozenInstanceError
 
 from fine_tuning_lab.config import ExperimentConfig, RunVariant
 
@@ -25,13 +25,15 @@ class TestExperimentConfig(unittest.TestCase):
 
     def test_blank_experiment_id_is_rejected(self) -> None:
         for experiment_id in ("", "   "):
-            with self.subTest(experiment_id=experiment_id):
-                with self.assertRaises(ValueError):
-                    ExperimentConfig(
-                        experiment_id=experiment_id,
-                        variant=RunVariant.BASELINE,
-                        seed=42,
-                    )
+            with (
+                self.subTest(experiment_id=experiment_id),
+                self.assertRaises(ValueError),
+            ):
+                ExperimentConfig(
+                    experiment_id=experiment_id,
+                    variant=RunVariant.BASELINE,
+                    seed=42,
+                )
 
     def test_negative_seed_is_rejected(self) -> None:
         with self.assertRaises(ValueError):
@@ -58,4 +60,5 @@ class TestExperimentConfig(unittest.TestCase):
         )
 
         with self.assertRaises(FrozenInstanceError):
-            setattr(config, "seed", 100)
+            field_name = "seed"
+            setattr(config, field_name, 100)
