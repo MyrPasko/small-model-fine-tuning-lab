@@ -31,8 +31,10 @@ Treat absolute paths as machine-specific. If the repository moved, locate it fro
 - Myroslav implements code by default.
 - Aira may implement code only after an explicit bounded takeover request.
 - Aira owns all Git and GitHub mechanics under `$project-git-ops`; Myroslav is not assigned branch, staging, commit, push, PR, merge, or main-sync commands.
+- Aira owns all test strategy, test code, fixtures, test infrastructure, execution, and failure diagnosis under `$project-test-ops`; Myroslav is not assigned test implementation.
+- Standing test authority permits Aira to edit tests but not production code. Production failures remain Myroslav's implementation work unless he explicitly requests takeover.
 - Repository evidence overrides stale notes.
-- A request to end a session authorizes the learning-record updates described here. Standing Git/GitHub authority is defined separately by `$project-git-ops`; ending a session does not authorize code changes, chat archival, model or dataset downloads, dependency installation, backend runs, or training.
+- A request to end a session authorizes the learning-record updates described here. Standing Git/GitHub and test authority are defined separately by `$project-git-ops` and `$project-test-ops`; ending a session does not authorize production-code changes, chat archival, model or dataset downloads, dependency installation, backend runs, or training.
 - Preserve unrelated user changes. Never clean or revert the working tree merely to make the session state simpler.
 
 ## Workflow
