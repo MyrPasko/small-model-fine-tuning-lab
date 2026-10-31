@@ -53,6 +53,25 @@ The experiment prioritizes structural and behavioral evidence:
 
 BLEU, ROUGE, and subjective fluency are not primary success metrics for this task.
 
+## Development Checks
+
+Install the exact locked environment:
+
+```shell
+uv sync --locked
+```
+
+Run the complete local quality gate:
+
+```shell
+uv run python -m unittest discover -s tests -v
+uv run ruff check .
+uv run ruff format --check .
+uv run mypy
+```
+
+`pyproject.toml` declares the supported ranges and tool configuration. The tracked `uv.lock` records the exact resolved dependency versions used by the project.
+
 ## Non-Goals
 
 - training on BFCL;
