@@ -13,9 +13,13 @@ module-name = "fine_tuning_lab"
 
 [tool.ruff]
 target-version = "py312"
+src = ["src"]
 
 [tool.ruff.lint]
 extend-select = ["I"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["fine_tuning_lab"]
 
 [tool.mypy]
 python_version = "3.12"
