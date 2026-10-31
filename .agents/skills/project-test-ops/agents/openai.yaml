@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project Test Ops"
+  short_description: "Own all tests for this learning project"
+  default_prompt: "Use $project-test-ops to design, implement, run, or review tests for this project."
