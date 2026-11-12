@@ -1,0 +1,83 @@
+{
+  "artifact_policy": {
+    "external_cache": "~/.cache/small-model-fine-tuning-lab/exp-001/toolace",
+    "raw_or_derived_data_in_git": false
+  },
+  "artifacts": {
+    "b0_decisions_jsonl_sha256": "c009b68ea3f4ac194b992e8ad2f09abd7ae2cadc8e6d135ff732629c28cae0fb",
+    "decisions_jsonl_sha256": "d81ddcaefb85556976ba0df64f34dcc26244af712c2a14414315464ef0a2ecd0",
+    "profile_json_sha256": "f69cefcced7af30b0609d4bc5098bc2b24291b9c9bcad52de282ae3de9c72114",
+    "rejected_jsonl_sha256": "c7ca917abf3251558750f2f2a9e51a807b5ce193af8fa7ba369a5b48df90a05c",
+    "split_manifest_json_sha256": "03cb8f457d7d3f3819cfaeb314d860e699e3f0eeb539f96d4036261c4c6cbe8e"
+  },
+  "dataset": {
+    "filename": "data.json",
+    "id": "Team-ACE/ToolACE",
+    "revision": "6bda777c88d21e5a204703c1ee45597a8fa4f734",
+    "sha256": "ba12c083fca7e8da48c67ad5b895e495447da7c66e39a2e19742c082e6cb537e",
+    "size_bytes": 37154735
+  },
+  "determinism": {
+    "independent_full_runs": 2,
+    "matching_artifact_hashes": true,
+    "split_manifest_payload_sha256": "f8b13a6fb06f7a1b53a32f845570fe4ac61f4d47aa3d17a01e35261177de3857"
+  },
+  "leakage_checks": {
+    "exact_prompt_overlap_count": 0,
+    "exact_strict_schema_overlap_count": 0,
+    "hard_leakage_violation_count": 0,
+    "maximum_strict_to_train_schema_similarity": 0.7857142857142857,
+    "missing_decision_id_count": 0,
+    "near_strict_schema_violation_count": 0,
+    "row_overlap_count": 0,
+    "strict_similarity_threshold": 0.85
+  },
+  "schema_version": 1,
+  "splits": {
+    "standard": {
+      "multi_call": 18,
+      "no_call": 20,
+      "single_call": 26,
+      "total": 64
+    },
+    "strict_schema_disjoint": {
+      "multi_call": 17,
+      "no_call": 20,
+      "single_call": 27,
+      "total": 64
+    },
+    "train": {
+      "multi_call": 4012,
+      "no_call": 1983,
+      "single_call": 5387,
+      "total": 11382
+    },
+    "excluded_strict_schema_near_overlap": 9
+  },
+  "transformation": {
+    "accepted_decision_rate": 0.9250722775457758,
+    "accepted_decisions": 11519,
+    "candidate_decisions": 12452,
+    "decision_class_counts": {
+      "multi_call": 4051,
+      "no_call": 2023,
+      "single_call": 5445
+    },
+    "ineligible_assistant_turns": 1367,
+    "rejected_decision_rate": 0.07492772245422422,
+    "rejected_decisions": 933,
+    "rejection_reason_counts": {
+      "empty_target": 5,
+      "malformed_call_target": 85,
+      "malformed_schema_json": 248,
+      "unknown_tool": 77,
+      "unsupported_schema_format": 518
+    },
+    "row_status_counts": {
+      "accepted": 10367,
+      "partial": 29,
+      "rejected": 904
+    },
+    "rows_total": 11300
+  }
+}

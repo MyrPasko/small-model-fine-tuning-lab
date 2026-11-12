@@ -1,0 +1,32 @@
+{
+  "artifact_sha256": "1aba55c1b6fdd9ac66862aee14dacb837ad49afa9a272eb978f2bc39c4ef1f5f",
+  "class_counts": {
+    "standard:multi_call": 18,
+    "standard:no_call": 20,
+    "standard:single_call": 26,
+    "strict_schema_disjoint:multi_call": 17,
+    "strict_schema_disjoint:no_call": 20,
+    "strict_schema_disjoint:single_call": 27
+  },
+  "dataset": {
+    "id": "Team-ACE/ToolACE",
+    "revision": "6bda777c88d21e5a204703c1ee45597a8fa4f734",
+    "sha256": "ba12c083fca7e8da48c67ad5b895e495447da7c66e39a2e19742c082e6cb537e",
+    "split_manifest_sha256": "f8b13a6fb06f7a1b53a32f845570fe4ac61f4d47aa3d17a01e35261177de3857"
+  },
+  "evaluation_item_count": 128,
+  "evaluation_items_sha256": "4d43ad2340120a1e147baeb675c4fd846e3e9563f3dc2a07a9c68d41de755730",
+  "generation": {
+    "decoding": "greedy",
+    "max_new_tokens": 256,
+    "non_thinking_prefill": "<think>\n\n</think>\n\n",
+    "prompt_contract_version": 1,
+    "wall_time_limit_seconds": 1800
+  },
+  "manifest_payload_sha256": "6c4524260e2037c1f94a656d1fc6c3aa8a99273de407d10c1eef9a82671f29f3",
+  "model": {
+    "id": "Qwen/Qwen3-1.7B-MLX-4bit",
+    "revision": "21457c6f51ed54a7c16e988c0844db973815c137"
+  },
+  "schema_version": 1
+}
