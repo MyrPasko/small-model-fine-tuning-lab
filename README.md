@@ -8,15 +8,15 @@ The first experiment, **EXP-001 — Tiny Tool Router**, asks a model to convert 
 
 Can QLoRA fine-tuning make `Qwen/Qwen3-1.7B` more reliable at producing valid, correct, and executable tool calls than the same unfine-tuned model?
 
-## Proposed Stack
+## Executed Baseline Stack
 
-- **Model:** `Qwen/Qwen3-1.7B`
-- **Training dataset:** `Team-ACE/ToolACE`
-- **Method:** QLoRA-style adapter training on quantized base weights
-- **Primary backend candidate:** MLX-LM on Apple Silicon
+- **Baseline model:** `Qwen/Qwen3-1.7B-MLX-4bit` at revision `21457c6f51ed54a7c16e988c0844db973815c137`
+- **Dataset:** `Team-ACE/ToolACE` at revision `6bda777c88d21e5a204703c1ee45597a8fa4f734`
+- **Planned training method:** QLoRA-style adapter training on quantized base weights
+- **Primary backend:** `mlx-lm==0.32.2` on Apple Silicon
 - **Fallback/reference backend:** Transformers with PEFT
 
-The exact model revision, dataset revision, backend version, and quantization configuration remain subject to a compatibility preflight. None is locked merely by appearing in this README.
+The pinned MLX model passed the local compatibility preflight. ToolACE transformation and the B0 baseline have also executed. These facts do not authorize or imply that QLoRA training has run.
 
 ## Experiment Matrix
 
@@ -72,6 +72,20 @@ uv run mypy
 
 `pyproject.toml` declares the supported ranges and tool configuration. The tracked `uv.lock` records the exact resolved dependency versions used by the project.
 
+Prepare the pinned ToolACE snapshot into an external artifact directory:
+
+```shell
+uv run python -m fine_tuning_lab.prepare_toolace <data.json> <output-dir>
+```
+
+Run the bounded B0 baseline with an already downloaded pinned model snapshot:
+
+```shell
+uv run python -m fine_tuning_lab.b0 <data.json> <model-snapshot-dir> <output-dir>
+```
+
+Raw data, transformed examples, and predictions must remain outside Git. Compact frozen evidence is tracked under `artifacts/exp-001/`.
+
 ## Non-Goals
 
 - training on BFCL;
@@ -85,12 +99,12 @@ uv run mypy
 
 This README defines the experiment contract; it is not evidence that the pipeline works.
 
-At the current repository-foundation stage:
+At the current Lesson 6 stage:
 
-- no ML dependencies have been installed;
-- no model or dataset has been downloaded;
-- no backend preflight has passed;
-- no baseline, smoke run, or full training run has been executed;
-- no model-quality claim has been established.
+- the pinned MLX-LM runtime and Qwen3 MLX snapshot pass local inference;
+- the pinned ToolACE source has been verified, transformed, accounted for, and split deterministically outside Git;
+- B0 completed on 128 frozen decision points with no training;
+- no QLoRA smoke run, adapter, BFCL run, or full training run exists;
+- B0 is a bounded baseline, not a general model-quality claim.
 
 Each future claim must be backed by reproducible configuration, frozen manifests, checksums, test output, and generated reports committed or referenced by the relevant experiment record.
