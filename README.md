@@ -4,6 +4,14 @@ A controlled local experiment for measuring whether QLoRA can improve structured
 
 The first experiment, **EXP-001 — Tiny Tool Router**, asks a model to convert a natural-language request plus a set of tool schemas into the correct structured tool calls. A fluent answer is not sufficient: the calls must be parseable, select the correct tools, contain valid typed arguments, and avoid unnecessary calls.
 
+## Start Here
+
+- **[B0 Exam Book](artifacts/exp-001/b0_exam_book.md)** — the complete human-readable baseline: experiment map, all 128 prompts, available tools, expected decisions, actual model outputs, and per-case verdicts.
+- [`b0_manifest.json`](artifacts/exp-001/b0_manifest.json) — the frozen machine-readable identity of the exam.
+- [`b0_report.json`](artifacts/exp-001/b0_report.json) — the compact machine-readable result.
+
+Do not interpret the summary metrics before inspecting the Exam Book. The external JSONL cache is a reproducibility source, not the only human interface to the experiment.
+
 ## Research Question
 
 Can QLoRA fine-tuning make `Qwen/Qwen3-1.7B` more reliable at producing valid, correct, and executable tool calls than the same unfine-tuned model?
@@ -82,6 +90,15 @@ Run the bounded B0 baseline with an already downloaded pinned model snapshot:
 
 ```shell
 uv run python -m fine_tuning_lab.b0 <data.json> <model-snapshot-dir> <output-dir>
+```
+
+Render the tracked human-readable exam after B0:
+
+```shell
+uv run python -m fine_tuning_lab.exam_book \
+  <toolace-output-dir>/b0_decisions.jsonl \
+  <b0-output-dir>/b0_results.jsonl \
+  artifacts/exp-001/b0_exam_book.md
 ```
 
 Raw data, transformed examples, and predictions must remain outside Git. Compact frozen evidence is tracked under `artifacts/exp-001/`.
